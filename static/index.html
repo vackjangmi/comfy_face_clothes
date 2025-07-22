@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ComfyUI 이미지 생성기</title>
+</head>
+<body>
+  <h2 style="text-align:center;">이미지 생성 요청</h2>
+  <form id="form" enctype="multipart/form-data" style="background:#f9f9f9;padding:24px 32px;border-radius:12px;box-shadow:0 2px 8px #0001;max-width:500px;margin:auto;">
+    <div style="display:flex;gap:24px;margin-bottom:18px;">
+      <div style="flex:1;">
+        <label style="font-weight:bold;">Face:
+          <input type="file" name="image1" required accept="image/*" onchange="previewImage(event, 'preview1')" style="display:block;margin-top:6px;">
+        </label>
+        <div id="preview1" style="margin-top:8px;min-height:130px;display:flex;align-items:center;justify-content:center;background:#f3f3f3;border-radius:8px;"></div>
+      </div>
+      <div style="flex:1;">
+        <label style="font-weight:bold;">Clothes:
+          <input type="file" name="image2" required accept="image/*" onchange="previewImage(event, 'preview2')" style="display:block;margin-top:6px;">
+        </label>
+        <div id="preview2" style="margin-top:8px;min-height:130px;display:flex;align-items:center;justify-content:center;background:#f3f3f3;border-radius:8px;"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:18px;">
+      <label style="font-weight:bold;">Clothes Type:
+        <input type="text" name="clothes_type" required value="dress" style="margin-left:8px;padding:4px 8px;border-radius:6px;border:1px solid #ccc;">
+      </label>
+    </div>
+    <div style="margin-bottom:18px;">
+      <label style="font-weight:bold;">Body type:</label>
+      <label style="margin-left:8px;"><input type="radio" name="body_type" value="Emaciated">매우 마름</label>
+      <label><input type="radio" name="body_type" value="Slim">마름</label>
+      <label><input type="radio" name="body_type" value="Average" checked>적당</label>
+      <label><input type="radio" name="body_type" value="Overweight">뚱뚱</label>
+      <label><input type="radio" name="body_type" value="Overweight">왕뚱뚱</label>
+    </div>
+    <button type="submit" style="background:#4a90e2;color:#fff;padding:10px 0;border:none;border-radius:8px;font-size:1.1em;cursor:pointer;width:100%;">생성</button>
+  </form>
+
+  <hr>
+  <div id="log" style="text-align:center;"></div>
+
+  <script>
+    function previewImage(event, previewId) {
+      const file = event.target.files[0];
+      const preview = document.getElementById(previewId);
+      preview.innerHTML = '';
+      if (file) {
+        const img = document.createElement('img');
+        img.style.maxWidth = '120px';
+        img.style.maxHeight = '120px';
+        img.style.borderRadius = '8px';
+        img.style.boxShadow = '0 1px 4px #0002';
+        img.src = URL.createObjectURL(file);
+        preview.appendChild(img);
+      }
+    }
+
+    document.getElementById("form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const response = await fetch("/generate", {
+        method: "POST",
+        body: formData
+      });
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      const log = document.getElementById("log");
+
+      log.innerHTML = "";  // 초기화
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        const text = decoder.decode(value);
+        log.innerHTML = text.replace(/data: /g, "");
+      }
+    });
+  </script>
+</body>
+</html>
