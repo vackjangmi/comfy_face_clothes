@@ -62,7 +62,7 @@
         "153",
         0
       ],
-      "seed": 1072215472011497,
+      "seed": 1098112070142273,
       "image": [
         "287",
         0
@@ -211,7 +211,7 @@
       "scheduler": "karras",
       "denoise": 1,
       "model": [
-        "318",
+        "1",
         0
       ],
       "positive": [
@@ -286,7 +286,7 @@
     "inputs": {
       "preset": "PLUS (high strength)",
       "model": [
-        "318",
+        "1",
         0
       ]
     },
@@ -800,7 +800,8 @@
   },
   "326": {
     "inputs": {
-      "provider": "CPU"
+      "provider": "CPU",
+      "model_name": "buffalo_l"
     },
     "class_type": "IPAdapterInsightFaceLoader",
     "_meta": {

@@ -2,7 +2,7 @@
   "id": "be3c9932-c86e-4144-ae6a-593c2368768a",
   "revision": 0,
   "last_node_id": 342,
-  "last_link_id": 561,
+  "last_link_id": 562,
   "nodes": [
     {
       "id": 107,
@@ -16,7 +16,7 @@
         26
       ],
       "flags": {},
-      "order": 60,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -89,7 +89,7 @@
         26
       ],
       "flags": {},
-      "order": 41,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -102,39 +102,6 @@
         {
           "name": "",
           "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": false
-      }
-    },
-    {
-      "id": 215,
-      "type": "Reroute",
-      "pos": [
-        4656.64453125,
-        -327.7091369628906
-      ],
-      "size": [
-        75,
-        26
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 344
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "MODEL",
           "links": []
         }
       ],
@@ -309,7 +276,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        360604393291727,
+        15779385927209,
         "randomize",
         30,
         6,
@@ -540,7 +507,7 @@
         78
       ],
       "flags": {},
-      "order": 68,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
@@ -592,7 +559,7 @@
         26
       ],
       "flags": {},
-      "order": 52,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -779,7 +746,7 @@
         26
       ],
       "flags": {},
-      "order": 65,
+      "order": 67,
       "mode": 0,
       "inputs": [
         {
@@ -915,7 +882,7 @@
         26
       ],
       "flags": {},
-      "order": 53,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -988,7 +955,7 @@
         26
       ],
       "flags": {},
-      "order": 63,
+      "order": 46,
       "mode": 0,
       "inputs": [
         {
@@ -1023,7 +990,7 @@
         26
       ],
       "flags": {},
-      "order": 66,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -1058,7 +1025,7 @@
         26
       ],
       "flags": {},
-      "order": 39,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -1094,7 +1061,7 @@
         26
       ],
       "flags": {},
-      "order": 37,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -1129,7 +1096,7 @@
         26
       ],
       "flags": {},
-      "order": 48,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -1313,7 +1280,7 @@
         26
       ],
       "flags": {},
-      "order": 45,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -1391,7 +1358,7 @@
         160
       ],
       "flags": {},
-      "order": 51,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -1433,7 +1400,7 @@
         26
       ],
       "flags": {},
-      "order": 47,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -1501,7 +1468,7 @@
         534
       ],
       "flags": {},
-      "order": 44,
+      "order": 45,
       "mode": 0,
       "inputs": [
         {
@@ -1565,7 +1532,7 @@
         26
       ],
       "flags": {},
-      "order": 50,
+      "order": 52,
       "mode": 0,
       "inputs": [
         {
@@ -1602,7 +1569,7 @@
         364
       ],
       "flags": {},
-      "order": 64,
+      "order": 66,
       "mode": 0,
       "inputs": [
         {
@@ -1663,7 +1630,7 @@
         3,
         true,
         "",
-        1072215472011497,
+        1098112070142273,
         "randomize"
       ]
     },
@@ -1715,7 +1682,7 @@
         26
       ],
       "flags": {},
-      "order": 62,
+      "order": 65,
       "mode": 0,
       "inputs": [
         {
@@ -1978,7 +1945,7 @@
         142
       ],
       "flags": {},
-      "order": 67,
+      "order": 68,
       "mode": 0,
       "inputs": [
         {
@@ -2256,7 +2223,7 @@
         250
       ],
       "flags": {},
-      "order": 57,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -2304,7 +2271,7 @@
         146
       ],
       "flags": {},
-      "order": 55,
+      "order": 58,
       "mode": 0,
       "inputs": [
         {
@@ -2357,7 +2324,7 @@
         250
       ],
       "flags": {},
-      "order": 58,
+      "order": 62,
       "mode": 0,
       "inputs": [
         {
@@ -2568,7 +2535,8 @@
         "Node name for S&R": "IPAdapterInsightFaceLoader"
       },
       "widgets_values": [
-        "CPU"
+        "CPU",
+        "buffalo_l"
       ]
     },
     {
@@ -2652,7 +2620,7 @@
         322
       ],
       "flags": {},
-      "order": 49,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -2737,7 +2705,7 @@
         26
       ],
       "flags": {},
-      "order": 43,
+      "order": 44,
       "mode": 0,
       "inputs": [
         {
@@ -2842,7 +2810,7 @@
         26
       ],
       "flags": {},
-      "order": 42,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -2996,7 +2964,7 @@
         160
       ],
       "flags": {},
-      "order": 36,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -3039,7 +3007,7 @@
         26
       ],
       "flags": {},
-      "order": 46,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -3074,7 +3042,7 @@
         26
       ],
       "flags": {},
-      "order": 38,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -3109,7 +3077,7 @@
         26
       ],
       "flags": {},
-      "order": 40,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -3257,49 +3225,6 @@
       }
     },
     {
-      "id": 312,
-      "type": "LoadImage",
-      "pos": [
-        2400.038330078125,
-        1143.921142578125
-      ],
-      "size": [
-        299,
-        402
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            508,
-            539
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "수지002.png",
-        "image"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 288,
       "type": "PreviewImage",
       "pos": [
@@ -3311,7 +3236,7 @@
         246
       ],
       "flags": {},
-      "order": 61,
+      "order": 64,
       "mode": 0,
       "inputs": [
         {
@@ -3340,7 +3265,7 @@
         130
       ],
       "flags": {},
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3434,45 +3359,6 @@
         "dpmpp_2m",
         "karras",
         1
-      ]
-    },
-    {
-      "id": 139,
-      "type": "LoadImage",
-      "pos": [
-        2420.72998046875,
-        1769.8367919921875
-      ],
-      "size": [
-        270,
-        314.0001220703125
-      ],
-      "flags": {},
-      "order": 20,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            467
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "수지3.jpeg",
-        "image"
       ]
     },
     {
@@ -3633,7 +3519,7 @@
         82
       ],
       "flags": {},
-      "order": 54,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -3675,13 +3561,13 @@
         26
       ],
       "flags": {},
-      "order": 59,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
           "name": "",
           "type": "*",
-          "link": 560
+          "link": 562
         }
       ],
       "outputs": [
@@ -3691,41 +3577,6 @@
           "links": [
             540,
             545
-          ]
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": false
-      }
-    },
-    {
-      "id": 341,
-      "type": "Reroute",
-      "pos": [
-        4812.658203125,
-        297.0202331542969
-      ],
-      "size": [
-        75,
-        26
-      ],
-      "flags": {},
-      "order": 56,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 559
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "MODEL",
-          "links": [
-            560
           ]
         }
       ],
@@ -3910,6 +3761,157 @@
         "cnr_id": "comfy-core",
         "ver": "0.3.40",
         "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 312,
+      "type": "LoadImage",
+      "pos": [
+        2400.038330078125,
+        1143.921142578125
+      ],
+      "size": [
+        299,
+        402
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            508,
+            539
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "8b8affd054ae45f2b1fb357c677c4c6e_수지3.jpg",
+        "image"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 139,
+      "type": "LoadImage",
+      "pos": [
+        2420.72998046875,
+        1769.8367919921875
+      ],
+      "size": [
+        270,
+        314.0001220703125
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            467
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "fcf4ce07539d4d96a933abebc0a1421a_dress.png",
+        "image"
+      ]
+    },
+    {
+      "id": 215,
+      "type": "Reroute",
+      "pos": [
+        4656.64453125,
+        -327.7091369628906
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 344
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MODEL",
+          "links": [
+            562
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 341,
+      "type": "Reroute",
+      "pos": [
+        4839.18212890625,
+        298.3287048339844
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 60,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 559
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
       }
     }
   ],
@@ -4827,20 +4829,20 @@
       "*"
     ],
     [
-      560,
-      341,
-      0,
-      203,
-      0,
-      "*"
-    ],
-    [
       561,
       319,
       0,
       342,
       0,
       "IMAGE"
+    ],
+    [
+      562,
+      215,
+      0,
+      203,
+      0,
+      "*"
     ]
   ],
   "groups": [
@@ -4900,13 +4902,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9735641811291376,
+      "scale": 0.45078125,
       "offset": [
-        -11930.595199053492,
-        -463.79370095422166
+        -5175.314664398852,
+        802.5371996446687
       ]
     },
-    "frontendVersion": "1.21.7"
+    "frontendVersion": "1.21.6"
   },
   "version": 0.4
 }
