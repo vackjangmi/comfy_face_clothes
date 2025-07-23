@@ -1,7 +1,9 @@
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
-from comfyui_utils import COMFYUI_BASE_URL, post_prompt, generate_image, upload_image, get_generated_image
+from fastapi.templating import Jinja2Templates
+from app.api.routes import router
+from comfyui_helper import COMFYUI_BASE_URL, post_prompt, generate_image, upload_image, get_generated_image
 import os
 import shutil
 import json
@@ -76,4 +78,10 @@ async def generate(
     except Exception as e:
         return {"error": str(e)}
 
+# HTML templates 디렉토리
+templates = Jinja2Templates(directory="app/templates")
+
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
+
+# API 라우터 등록
+app.include_router(router)
