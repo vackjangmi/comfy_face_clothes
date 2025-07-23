@@ -1,8 +1,10 @@
+# app/utils/comfyui_helper.py
+
 import httpx
 import asyncio
 import requests
 
-COMFYUI_BASE_URL = "http://127.0.0.1:8188"
+from app.core.config import COMFYUI_BASE_URL
 
 async def post_prompt(workflow_json):
     async with httpx.AsyncClient() as client:
@@ -50,5 +52,3 @@ def upload_image(filename):
         files = {"image": f}
         response = requests.post(f"{COMFYUI_BASE_URL}/upload/image", files=files)
     return response
-
-

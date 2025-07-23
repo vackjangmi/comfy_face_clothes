@@ -1,17 +1,15 @@
-from fastapi import FastAPI, File, UploadFile, Form
-from fastapi.responses import StreamingResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-from app.api.routes import router
-from comfyui_helper import COMFYUI_BASE_URL, post_prompt, generate_image, upload_image, get_generated_image
-import os
-import shutil
+# app/services/generate_service.py
+
 import json
 import uuid
+import shutil
+import os
 
-app = FastAPI()
+from fastapi.responses import StreamingResponse
 
-UPLOAD_DIR = "uploads"
+from app.core.config import UPLOAD_DIR, WORKFLOW_DIR
+from app.utils.comfyui_helper import post_prompt, generate_image, upload_image, get_generated_image
+
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 def save_file_and_upload(upload_file):
@@ -34,7 +32,10 @@ def body_type_prompt():
     }
 
 def fill_workflow_template(image1_filename, image2_filename, clothes_type, body_type):
-    with open("workflow_template.json") as f:
+    workflow_path = os.path.join(os.path.dirname(__file__), f"../../{WORKFLOW_DIR}/workflow_template.json")
+    workflow_path = os.path.abspath(workflow_path)
+
+    with open(workflow_path) as f:
         workflow_template = f.read()
 
         return workflow_template \
@@ -43,45 +44,20 @@ def fill_workflow_template(image1_filename, image2_filename, clothes_type, body_
             .replace("{clothes_type}", clothes_type) \
             .replace("{prompt_text}", body_type_prompt().get(body_type, ""))
 
-
-@app.post("/generate")
-async def generate(
-    image1: UploadFile = File(...),
-    image2: UploadFile = File(...),
-    clothes_type: str = Form(...),
-    body_type: str = Form(...)
-):
+async def process_generate(image1, image2, clothes_type, body_type):
     image1_filename = save_file_and_upload(image1)
     image2_filename = save_file_and_upload(image2)
 
     prompt = fill_workflow_template(image1_filename, image2_filename, clothes_type, body_type)
     workflow_json = { "prompt": json.loads(prompt) }
 
-    try:
-        prompt_id = await post_prompt(workflow_json)
-        print(f"prompt_id: {prompt_id}")
+    prompt_id = await post_prompt(workflow_json)
 
-        async def stream():
-            yield f"data: {prompt_id} 생성 중입니다..."
-            print(f"prompt_id: {prompt_id}")
+    async def stream():
+        yield f"data: {prompt_id} 생성 중입니다..."
+        async for progress in generate_image(prompt_id):
+            yield f"data: {progress}"
+        image_url = await get_generated_image(prompt_id)
+        yield f"data: <img src='{image_url}'>"
 
-            try:
-                async for progress in generate_image(prompt_id):
-                    yield f"data: {progress}"
-
-                image_url = await get_generated_image(prompt_id)
-                yield f"data: <img src='{image_url}'>"
-            except Exception as e:
-                yield f"data: 🔴 요청 실패 - {str(e)}"
-
-        return StreamingResponse(stream(), media_type="text/event-stream")
-    except Exception as e:
-        return {"error": str(e)}
-
-# HTML templates 디렉토리
-templates = Jinja2Templates(directory="app/templates")
-
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
-
-# API 라우터 등록
-app.include_router(router)
+    return StreamingResponse(stream(), media_type="text/event-stream")
