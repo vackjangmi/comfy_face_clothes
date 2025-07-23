@@ -9,6 +9,7 @@ from fastapi.responses import StreamingResponse
 
 from app.core.config import UPLOAD_DIR, WORKFLOW_DIR
 from app.utils.comfyui_helper import post_prompt, generate_image, upload_image, get_generated_image
+from app.utils.seed_helper import get_random_seed
 
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
@@ -41,6 +42,8 @@ def fill_workflow_template(image1_filename, image2_filename, clothes_type, body_
         return workflow_template \
             .replace("{image1}", image1_filename) \
             .replace("{image2}", image2_filename) \
+            .replace("{seed1}", str(get_random_seed())) \
+            .replace("{seed2}", str(get_random_seed())) \
             .replace("{clothes_type}", clothes_type) \
             .replace("{prompt_text}", body_type_prompt().get(body_type, ""))
 

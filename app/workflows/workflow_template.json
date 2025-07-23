@@ -234,7 +234,7 @@
   },
   "219": {
     "inputs": {
-      "seed": 584573526222839
+      "seed": "{seed1}"
     },
     "class_type": "Seed (rgthree)",
     "_meta": {
@@ -773,7 +773,7 @@
   },
   "323": {
     "inputs": {
-      "seed": 584573526222839
+      "seed": "{seed2}"
     },
     "class_type": "Seed (rgthree)",
     "_meta": {
