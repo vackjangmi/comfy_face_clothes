@@ -20,7 +20,7 @@ async def get_history(prompt_id):
 
         return res.json()
 
-async def generate_image(prompt_id, timeout: int = 300):
+async def generate_image(prompt_id, timeout: int = 500):
     for i in range(timeout):
         data = await get_history(prompt_id)
 

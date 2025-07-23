@@ -42,8 +42,9 @@ def fill_workflow_template(image1_filename, image2_filename, clothes_type, body_
         return workflow_template \
             .replace("{image1}", image1_filename) \
             .replace("{image2}", image2_filename) \
-            .replace("{seed1}", str(get_random_seed())) \
+            .replace("{seed1}", str(91914043258182)) \
             .replace("{seed2}", str(get_random_seed())) \
+            .replace("{seed3}", str(get_random_seed())) \
             .replace("{clothes_type}", clothes_type) \
             .replace("{prompt_text}", body_type_prompt().get(body_type, ""))
 

@@ -53,16 +53,16 @@
     "inputs": {
       "text_input": "",
       "task": "prompt_gen_tags",
-      "fill_mask": true,
+      "fill_mask": false,
       "keep_model_loaded": false,
       "max_new_tokens": 2048,
       "num_beams": 3,
-      "do_sample": true,
+      "do_sample": false,
       "output_mask_select": [
         "153",
         0
       ],
-      "seed": 1098112070142273,
+      "seed": "{seed3}",
       "image": [
         "287",
         0
@@ -79,7 +79,7 @@
   },
   "15": {
     "inputs": {
-      "delimiter": " ",
+      "delimiter": ",",
       "clean_whitespace": "true",
       "text_a": [
         "16",
@@ -105,7 +105,7 @@
   },
   "16": {
     "inputs": {
-      "text": "(wearing"
+      "text": "("
     },
     "class_type": "Text Multiline",
     "_meta": {
@@ -396,7 +396,7 @@
         1
       ],
       "image": [
-        "317",
+        "359",
         0
       ],
       "attn_mask": [
@@ -471,73 +471,6 @@
       "title": "Text Multiline"
     }
   },
-  "284": {
-    "inputs": {
-      "background": true,
-      "hat": true,
-      "hair": true,
-      "glove": true,
-      "sunglasses": true,
-      "upper_clothes": true,
-      "dress": true,
-      "coat": true,
-      "socks": true,
-      "pants": true,
-      "jumpsuits": true,
-      "scarf": true,
-      "skirt": true,
-      "face": false,
-      "left_arm": true,
-      "right_arm": true,
-      "left_leg": true,
-      "right_leg": true,
-      "left_shoe": true,
-      "right_shoe": true,
-      "image": [
-        "139",
-        0
-      ]
-    },
-    "class_type": "Cozy Human Parser LIP",
-    "_meta": {
-      "title": "Cozy Human Parser LIP"
-    }
-  },
-  "285": {
-    "inputs": {
-      "masks": [
-        "284",
-        0
-      ]
-    },
-    "class_type": "Convert Masks to Images",
-    "_meta": {
-      "title": "Convert Masks to Images"
-    }
-  },
-  "286": {
-    "inputs": {
-      "x": 0,
-      "y": 0,
-      "resize_source": true,
-      "destination": [
-        "285",
-        0
-      ],
-      "source": [
-        "139",
-        0
-      ],
-      "mask": [
-        "284",
-        0
-      ]
-    },
-    "class_type": "ImageCompositeMasked",
-    "_meta": {
-      "title": "마스크된 이미지 합성"
-    }
-  },
   "287": {
     "inputs": {
       "transparency": false,
@@ -550,7 +483,7 @@
       "alpha_matting_erode_size": 10,
       "background_color": "white",
       "images": [
-        "286",
+        "139",
         0
       ]
     },
@@ -612,27 +545,6 @@
     "class_type": "Text Concatenate",
     "_meta": {
       "title": "Text Concatenate"
-    }
-  },
-  "317": {
-    "inputs": {
-      "transparency": true,
-      "model": "u2net",
-      "post_processing": false,
-      "only_mask": false,
-      "alpha_matting": false,
-      "alpha_matting_foreground_threshold": 240,
-      "alpha_matting_background_threshold": 10,
-      "alpha_matting_erode_size": 10,
-      "background_color": "none",
-      "images": [
-        "286",
-        0
-      ]
-    },
-    "class_type": "Image Rembg (Remove Background)",
-    "_meta": {
-      "title": "Image Rembg (Remove Background)"
     }
   },
   "318": {
@@ -800,8 +712,7 @@
   },
   "326": {
     "inputs": {
-      "provider": "CPU",
-      "model_name": "buffalo_l"
+      "provider": "CPU"
     },
     "class_type": "IPAdapterInsightFaceLoader",
     "_meta": {
@@ -832,7 +743,163 @@
       "title": "이미지 미리보기"
     }
   },
-  "342": {
+  "350": {
+    "inputs": {
+      "model_name": "sam_vit_h (2.56GB)"
+    },
+    "class_type": "SAMModelLoader (segment anything)",
+    "_meta": {
+      "title": "SAMModelLoader (segment anything)"
+    }
+  },
+  "351": {
+    "inputs": {
+      "prompt": "dress",
+      "threshold": 0.3,
+      "sam_model": [
+        "350",
+        0
+      ],
+      "grounding_dino_model": [
+        "352",
+        0
+      ],
+      "image": [
+        "139",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "352": {
+    "inputs": {
+      "model_name": "GroundingDINO_SwinT_OGC (694MB)"
+    },
+    "class_type": "GroundingDinoModelLoader (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoModelLoader (segment anything)"
+    }
+  },
+  "354": {
+    "inputs": {
+      "mask": [
+        "351",
+        1
+      ]
+    },
+    "class_type": "InvertMask (segment anything)",
+    "_meta": {
+      "title": "InvertMask (segment anything)"
+    }
+  },
+  "355": {
+    "inputs": {
+      "masks": [
+        "351",
+        1
+      ]
+    },
+    "class_type": "Convert Masks to Images",
+    "_meta": {
+      "title": "Convert Masks to Images"
+    }
+  },
+  "356": {
+    "inputs": {
+      "images": [
+        "355",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "이미지 미리보기"
+    }
+  },
+  "357": {
+    "inputs": {
+      "masks": [
+        "354",
+        0
+      ]
+    },
+    "class_type": "Convert Masks to Images",
+    "_meta": {
+      "title": "Convert Masks to Images"
+    }
+  },
+  "358": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "139",
+        0
+      ],
+      "source": [
+        "357",
+        0
+      ],
+      "mask": [
+        "354",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "마스크된 이미지 합성"
+    }
+  },
+  "359": {
+    "inputs": {
+      "transparency": true,
+      "model": "u2net",
+      "post_processing": false,
+      "only_mask": false,
+      "alpha_matting": false,
+      "alpha_matting_foreground_threshold": 240,
+      "alpha_matting_background_threshold": 10,
+      "alpha_matting_erode_size": 10,
+      "background_color": "none",
+      "images": [
+        "358",
+        0
+      ]
+    },
+    "class_type": "Image Rembg (Remove Background)",
+    "_meta": {
+      "title": "Image Rembg (Remove Background)"
+    }
+  },
+  "360": {
+    "inputs": {
+      "images": [
+        "359",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "이미지 미리보기"
+    }
+  },
+  "367": {
+    "inputs": {
+      "images": [
+        "231",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "이미지 미리보기"
+    }
+  },
+  "368": {
     "inputs": {
       "images": [
         "319",
