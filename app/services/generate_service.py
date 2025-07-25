@@ -32,27 +32,31 @@ def body_type_prompt():
         "Average": "an average build woman, full body, standing, facing front, plain white background, simple lighting, realistic body proportions, casual appearance, DSLR photo"
     }
 
-def fill_workflow_template(image1_filename, image2_filename, clothes_type, body_type):
+def fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, body_type):
     workflow_path = os.path.join(os.path.dirname(__file__), f"../../{WORKFLOW_DIR}/workflow_template.json")
     workflow_path = os.path.abspath(workflow_path)
 
     with open(workflow_path) as f:
         workflow_template = f.read()
 
+            # .replace("{seed2}", str(833552588482770)) \
         return workflow_template \
             .replace("{image1}", image1_filename) \
             .replace("{image2}", image2_filename) \
-            .replace("{seed1}", str(91914043258182)) \
+            .replace("{seed1}", str(1224)) \
             .replace("{seed2}", str(get_random_seed())) \
             .replace("{seed3}", str(get_random_seed())) \
             .replace("{clothes_type}", clothes_type) \
+            .replace("{human_info}", human_info) \
             .replace("{prompt_text}", body_type_prompt().get(body_type, ""))
 
 async def process_generate(image1, image2, clothes_type, body_type):
     image1_filename = save_file_and_upload(image1)
     image2_filename = save_file_and_upload(image2)
 
-    prompt = fill_workflow_template(image1_filename, image2_filename, clothes_type, body_type)
+    human_info = ''    
+
+    prompt = fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, body_type)
     workflow_json = { "prompt": json.loads(prompt) }
 
     prompt_id = await post_prompt(workflow_json)

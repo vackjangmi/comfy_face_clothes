@@ -52,11 +52,11 @@
   "14": {
     "inputs": {
       "text_input": "",
-      "task": "prompt_gen_tags",
+      "task": "prompt_gen_mixed_caption_plus",
       "fill_mask": false,
       "keep_model_loaded": false,
-      "max_new_tokens": 2048,
-      "num_beams": 3,
+      "max_new_tokens": 4096,
+      "num_beams": 6,
       "do_sample": false,
       "output_mask_select": [
         "153",
@@ -82,19 +82,15 @@
       "delimiter": ",",
       "clean_whitespace": "true",
       "text_a": [
-        "16",
+        "373",
         0
       ],
       "text_b": [
-        "14",
-        2
-      ],
-      "text_c": [
-        "153",
+        "369",
         0
       ],
-      "text_d": [
-        "265",
+      "text_c": [
+        "374",
         0
       ]
     },
@@ -114,7 +110,7 @@
   },
   "17": {
     "inputs": {
-      "text": "(full body:1.3), (standing, front-facing:1.3), (white background:1.3), solo, centered, symmetrical composition, fashion model, dynamic pose, studio lighting, pure white background, wide shot, high quality, ultra-detailed, 8k, DSLR, photo shoot, realistic, sharp focus, natural skin texture\n"
+      "text": "solo, centered, symmetrical composition, fashion model, dynamic pose, studio lighting, wide shot, high quality, ultra-detailed, 8k, DSLR, photo shoot, realistic, sharp focus, natural skin texture\n"
     },
     "class_type": "Text Multiline",
     "_meta": {
@@ -134,11 +130,11 @@
         0
       ],
       "text_c": [
-        "17",
+        "19",
         0
       ],
       "text_d": [
-        "19",
+        "17",
         0
       ]
     },
@@ -176,7 +172,7 @@
   },
   "172": {
     "inputs": {
-      "text": ""
+      "text": "(full body:1.3), (standing, front-facing:1.3), (white background:1.3)"
     },
     "class_type": "Text Multiline",
     "_meta": {
@@ -201,10 +197,7 @@
   },
   "205": {
     "inputs": {
-      "seed": [
-        "219",
-        0
-      ],
+      "seed": "{seed2}",
       "steps": 30,
       "cfg": 6,
       "sampler_name": "dpmpp_2m",
@@ -230,15 +223,6 @@
     "class_type": "KSampler",
     "_meta": {
       "title": "KSampler"
-    }
-  },
-  "219": {
-    "inputs": {
-      "seed": "{seed1}"
-    },
-    "class_type": "Seed (rgthree)",
-    "_meta": {
-      "title": "Seed (rgthree)"
     }
   },
   "221": {
@@ -271,15 +255,6 @@
     "class_type": "Convert Masks to Images",
     "_meta": {
       "title": "Convert Masks to Images"
-    }
-  },
-  "234": {
-    "inputs": {
-      "clip_name": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-    },
-    "class_type": "CLIPVisionLoader",
-    "_meta": {
-      "title": "CLIP_VISION 로드"
     }
   },
   "235": {
@@ -379,53 +354,16 @@
       "title": "CLIP 텍스트 인코딩 (프롬프트)"
     }
   },
-  "250": {
-    "inputs": {
-      "weight": 1,
-      "weight_type": "strong style transfer",
-      "combine_embeds": "concat",
-      "start_at": 0,
-      "end_at": 1,
-      "embeds_scaling": "V only",
-      "model": [
-        "235",
-        0
-      ],
-      "ipadapter": [
-        "235",
-        1
-      ],
-      "image": [
-        "359",
-        0
-      ],
-      "attn_mask": [
-        "238",
-        0
-      ],
-      "clip_vision": [
-        "234",
-        0
-      ]
-    },
-    "class_type": "IPAdapterAdvanced",
-    "_meta": {
-      "title": "IPAdapter Advanced"
-    }
-  },
   "251": {
     "inputs": {
-      "seed": [
-        "323",
-        0
-      ],
+      "seed": "{seed1}",
       "steps": 20,
       "cfg": 10,
       "sampler_name": "dpmpp_2m",
       "scheduler": "karras",
       "denoise": 1,
       "model": [
-        "250",
+        "384",
         0
       ],
       "positive": [
@@ -460,15 +398,6 @@
     "class_type": "VAEDecode",
     "_meta": {
       "title": "VAE 디코드"
-    }
-  },
-  "265": {
-    "inputs": {
-      "text": ")"
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
     }
   },
   "287": {
@@ -567,7 +496,7 @@
       "guide_size_for": true,
       "max_size": 1024,
       "seed": 187270156334601,
-      "steps": 20,
+      "steps": 10,
       "cfg": 8,
       "sampler_name": "euler",
       "scheduler": "normal",
@@ -683,15 +612,6 @@
       "title": "IPAdapter FaceID"
     }
   },
-  "323": {
-    "inputs": {
-      "seed": "{seed2}"
-    },
-    "class_type": "Seed (rgthree)",
-    "_meta": {
-      "title": "Seed (rgthree)"
-    }
-  },
   "324": {
     "inputs": {
       "clip_name": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
@@ -754,7 +674,7 @@
   },
   "351": {
     "inputs": {
-      "prompt": "dress",
+      "prompt": "{clothes_type}",
       "threshold": 0.3,
       "sam_model": [
         "350",
@@ -909,6 +829,154 @@
     "class_type": "PreviewImage",
     "_meta": {
       "title": "이미지 미리보기"
+    }
+  },
+  "369": {
+    "inputs": {
+      "delimiter": " ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "371",
+        0
+      ],
+      "text_b": [
+        "153",
+        0
+      ],
+      "text_c": [
+        "370",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "370": {
+    "inputs": {
+      "text": ")"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "371": {
+    "inputs": {
+      "text": "("
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "372": {
+    "inputs": {
+      "text": ")"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "373": {
+    "inputs": {
+      "delimiter": "",
+      "clean_whitespace": "true",
+      "text_a": [
+        "16",
+        0
+      ],
+      "text_b": [
+        "14",
+        2
+      ],
+      "text_c": [
+        "372",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "374": {
+    "inputs": {
+      "delimiter": " ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "375",
+        0
+      ],
+      "text_b": [
+        "377",
+        0
+      ],
+      "text_c": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "375": {
+    "inputs": {
+      "text": "(wearing "
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "376": {
+    "inputs": {
+      "text": ")"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "377": {
+    "inputs": {
+      "text": "sex female, height 170cm, weight 49kg"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "384": {
+    "inputs": {
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "weight_type": "standard",
+      "model": [
+        "235",
+        0
+      ],
+      "ipadapter": [
+        "235",
+        1
+      ],
+      "image": [
+        "359",
+        0
+      ],
+      "attn_mask": [
+        "238",
+        0
+      ]
+    },
+    "class_type": "IPAdapter",
+    "_meta": {
+      "title": "IPAdapter"
     }
   }
 }
