@@ -25,21 +25,32 @@ def save_file_and_upload(upload_file):
 
 def body_type_prompt():
     return {
-        "Emaciated": "an emaciated woman, standing, facing front, white background, full body, visible bones, bony arms, neutral pose, soft lighting, photorealistic, DSLR shot",
-        "Slim": "a slim woman, standing, facing forward, white background, full body, delicate build, minimalistic background, natural lighting, 4k photo, fashion model pose",
-        "Overweight": "a chubby woman, standing, facing forward, white background, soft curves, full body, neutral pose, realistic body shape, 4k DSLR photo",
-        "Obese": "an obese woman, standing, facing forward, plain white background, very large body, full body shot, neutral expression, studio lighting, realistic DSLR photo",
-        "Average": "an average build woman, full body, standing, facing front, plain white background, simple lighting, realistic body proportions, casual appearance, DSLR photo"
+        "female": {
+            "Emaciated": "an emaciated woman, standing, facing front, white background, full body, visible bones, bony arms, neutral pose, photorealistic, DSLR shot, realistic proportions, facing front, soft lighting, standing pose, natural stance, neutral pose, natural lighting, friendly face",
+            "Slim": "a slim woman, standing, facing forward, white background, full body, delicate build, minimalistic background, natural lighting, 4k photo, fashion model pose, realistic proportions, facing front, soft lighting, standing pose, natural stance, neutral pose, natural lighting, friendly face",
+            "Overweight": "a chubby woman, standing, facing forward, white background, soft curves, full body, neutral pose, realistic body shape, 4k DSLR photo, realistic proportions, facing front, soft lighting, standing pose, natural stance, neutral pose, natural lighting, friendly face",
+            "Obese": "an obese woman, standing, facing forward, plain white background, very large body, full body shot, neutral expression, studio lighting, realistic DSLR photo, realistic proportions, facing front, soft lighting, standing pose, natural stance, neutral pose, natural lighting, friendly face",
+            "Average": "an average build woman, full body, standing, facing front, plain white background, simple lighting, realistic body proportions, casual appearance, DSLR photo, realistic proportions, facing front, soft lighting, standing pose, natural stance, neutral pose, natural lighting, friendly face"
+        },
+        "male": {
+            "Emaciated": "emaciated man, very thin, bony figure, visible ribs, bony arms, realistic body proportions, casual appearance, standing pose, natural stance, neutral pose, natural lighting, soft lighting, photorealistic, facing front",
+            "Slim": "slim man, thin build, delicate frame, lightweight figure, bony arms, realistic body proportions, casual appearance, standing pose, natural stance, neutral pose, natural lighting, soft lighting, photorealistic, facing front",
+            "Average": "average build man, fit body, healthy body type, normal physique, bony arms, realistic body proportions, casual appearance, standing pose, natural stance, neutral pose, natural lighting, soft lighting, photorealistic, facing front",
+            "Overweight": "overweight man, heavyset, bigger figure, round body shape, bony arms, realistic body proportions, casual appearance, standing pose, natural stance, neutral pose, natural lighting, soft lighting, photorealistic, facing front",
+            "Obese": "obese man, morbidly obese, extremely large body, massive figure, bony arms, realistic body proportions, casual appearance, standing pose, natural stance, neutral pose, natural lighting, soft lighting, photorealistic, facing front"
+        }
     }
+    
 
-def fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, body_type):
-    workflow_path = os.path.join(os.path.dirname(__file__), f"../../{WORKFLOW_DIR}/workflow_template.json")
+def fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, gender, body_type):
+
+    workflow_file = "workflow_template.json" if "and" in clothes_type else "workflow_template_comb.json"
+    workflow_path = os.path.join(os.path.dirname(__file__), f"../../{WORKFLOW_DIR}/{workflow_file}")
     workflow_path = os.path.abspath(workflow_path)
 
     with open(workflow_path) as f:
         workflow_template = f.read()
 
-            # .replace("{seed2}", str(833552588482770)) \
         return workflow_template \
             .replace("{image1}", image1_filename) \
             .replace("{image2}", image2_filename) \
@@ -48,15 +59,15 @@ def fill_workflow_template(image1_filename, image2_filename, clothes_type, human
             .replace("{seed3}", str(get_random_seed())) \
             .replace("{clothes_type}", clothes_type) \
             .replace("{human_info}", human_info) \
-            .replace("{prompt_text}", body_type_prompt().get(body_type, ""))
+            .replace("{prompt_text}", body_type_prompt().get(gender).get(body_type, ""))
 
-async def process_generate(image1, image2, clothes_type, body_type):
+async def process_generate(image1, image2, clothes_type, gender, body_type):
     image1_filename = save_file_and_upload(image1)
     image2_filename = save_file_and_upload(image2)
 
-    human_info = ''    
+    human_info = ""
 
-    prompt = fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, body_type)
+    prompt = fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, gender, body_type)
     workflow_json = { "prompt": json.loads(prompt) }
 
     prompt_id = await post_prompt(workflow_json)

@@ -23,10 +23,29 @@
       </div>
     </div>
     <div style="margin-bottom:18px;">
-      <label style="font-weight:bold;">Clothes Type:
-        <input type="text" name="clothes_type" required value="dress" style="margin-left:8px;padding:4px 8px;border-radius:6px;border:1px solid #ccc;">
-      </label>
+      <label style="font-weight:bold;">Clothes Type:</label>
+      <select name="clothes_type" required style="margin-left:8px;padding:4px 8px;border-radius:6px;border:1px solid #ccc;">
+        <option value="Dress">Dress</option>
+        <option value="Strappy dress">Strappy dress</option>
+        <option value="Short sleeve dress">Short sleeve dress</option>
+        <option value="Blous and skirt">Blouse and skirt</option>
+        <option value="Short sleeve shirt and skirt">Short sleeve shirt and skirt</option>
+        <option value="Short sleeve shirt and jeans">Short sleeve shirt and jeans</option>
+        <option value="Long sleeve shirt and skirt">Long sleeve shirt and skirt</option>
+        <option value="Long sleeve shirt and jeans">Long sleeve shirt and jeans</option>
+        <option value="Short sleeve shirt">Short sleeve shirt</option>
+        <option value="Long sleeve shirt">Long sleeve shirt</option>
+        <option value="One piece">One piece</option>
+        <option value="Two pieces">Two pieces</option>
+      </select>
     </div>
+
+    <div style="margin-bottom:18px;">
+      <label style="font-weight:bold;">Gender:</label>
+      <label style="margin-left:8px;"><input type="radio" name="gender" value="female" checked>여성</label>
+      <label><input type="radio" name="gender" value="male">남성</label>
+    </div>
+
     <div style="margin-bottom:18px;">
       <label style="font-weight:bold;">Body type:</label>
       <label style="margin-left:8px;"><input type="radio" name="body_type" value="Emaciated">매우 마름</label>

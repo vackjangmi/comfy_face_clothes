@@ -19,6 +19,7 @@ async def generate(
     image1: UploadFile = File(...),
     image2: UploadFile = File(...),
     clothes_type: str = Form(...),
+    gender: str = Form(...),
     body_type: str = Form(...)
 ):
-    return await process_generate(image1, image2, clothes_type, body_type)
+    return await process_generate(image1, image2, clothes_type, gender, body_type)
