@@ -1,81 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <title>ComfyUI 이미지 생성기</title>
   <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .form-container {
+      background: #f9f9f9;
+      padding: 24px 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0001;
+      max-width: 640px;
+      margin: auto;
+    }
+    .form-section {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .form-field {
+      flex: 1;
+      min-width: 180px;
+    }
+    .preview-box {
+      margin-top: 8px;
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f3f3;
+      border-radius: 8px;
+    }
+    .input-text {
+      display: block;
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .submit-btn {
+      background: #4a90e2;
+      color: #fff;
+      padding: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
   <h2 style="text-align:center;">이미지 생성 요청</h2>
-  <form id="form" enctype="multipart/form-data" style="background:#f9f9f9;padding:24px 32px;border-radius:12px;box-shadow:0 2px 8px #0001;max-width:500px;margin:auto;">
-    <div style="display:flex;gap:24px;margin-bottom:18px;">
-      <div style="flex:1;">
-        <label style="font-weight:bold;">Face:
-          <input type="file" name="image1" required accept="image/*" onchange="previewImage(event, 'preview1')" style="display:block;margin-top:6px;">
+
+  <form id="form" enctype="multipart/form-data" class="form-container">
+    <!-- 이미지 업로드 영역 -->
+    <div class="form-section">
+      <div class="form-field">
+        <label><strong>Face:</strong>
+          <input type="file" name="image1" required accept="image/*"
+                 onchange="previewImage(event, 'preview1')" style="display:block;margin-top:6px;">
         </label>
-        <div id="preview1" style="margin-top:8px;min-height:130px;display:flex;align-items:center;justify-content:center;background:#f3f3f3;border-radius:8px;"></div>
+        <div id="preview1" class="preview-box"></div>
       </div>
-      <div style="flex:1;">
-        <label style="font-weight:bold;">Clothes:
-          <input type="file" name="image2" required accept="image/*" onchange="previewImage(event, 'preview2')" style="display:block;margin-top:6px;">
+
+      <div class="form-field">
+        <label><strong>Clothes:</strong>
+          <input type="file" name="image2" required accept="image/*"
+                 onchange="previewImage(event, 'preview2')" style="display:block;margin-top:6px;">
         </label>
-        <div id="preview2" style="margin-top:8px;min-height:130px;display:flex;align-items:center;justify-content:center;background:#f3f3f3;border-radius:8px;"></div>
+        <div id="preview2" class="preview-box"></div>
       </div>
-    </div>
-    <div style="margin-bottom:18px;">
-      <label style="font-weight:bold;">Clothes Type:</label>
-      <select name="clothes_type" required style="margin-left:8px;padding:4px 8px;border-radius:6px;border:1px solid #ccc;">
-        <option value="Dress">Dress</option>
-        <option value="Strappy dress">Strappy dress</option>
-        <option value="Short sleeve dress">Short sleeve dress</option>
-        <option value="Blous and skirt">Blouse and skirt</option>
-        <option value="Short sleeve shirt and skirt">Short sleeve shirt and skirt</option>
-        <option value="Short sleeve shirt and jeans">Short sleeve shirt and jeans</option>
-        <option value="Long sleeve shirt and skirt">Long sleeve shirt and skirt</option>
-        <option value="Long sleeve shirt and jeans">Long sleeve shirt and jeans</option>
-        <option value="Short sleeve shirt">Short sleeve shirt</option>
-        <option value="Long sleeve shirt">Long sleeve shirt</option>
-        <option value="One piece">One piece</option>
-        <option value="Two pieces">Two pieces</option>
-      </select>
+
+      <div class="form-field">
+        <label><strong>Pose:</strong>
+          <input type="file" name="image3" accept="image/*"
+                 onchange="previewImage(event, 'preview3')" style="display:block;margin-top:6px;">
+        </label>
+        <div id="preview3" class="preview-box"></div>
+      </div>
     </div>
 
+    <!-- 옷 타입 입력 방식 선택 -->
+    <div style="margin-bottom:18px;">
+      <label style="font-weight:bold;">Clothes Type Input Mode:</label><br>
+      <label><input type="radio" name="input_mode" value="1" checked> 1개 입력</label>
+      <label style="margin-left:10px;"><input type="radio" name="input_mode" value="2"> 2개 입력</label>
+    </div>
+
+    <!-- 옷 타입 입력 필드 -->
+    <div style="margin-bottom:18px;">
+      <input type="text" name="clothes_type1" placeholder="Clothes Type 1" class="input-text">
+      <input type="text" id="clothes_type2" name="clothes_type2" placeholder="Clothes Type 2"
+             class="input-text" style="display:none;">
+    </div>
+
+    <!-- 성별 -->
     <div style="margin-bottom:18px;">
       <label style="font-weight:bold;">Gender:</label>
-      <label style="margin-left:8px;"><input type="radio" name="gender" value="female" checked>여성</label>
-      <label><input type="radio" name="gender" value="male">남성</label>
+      <label style="margin-left:8px;"><input type="radio" name="gender" value="female" checked> 여성</label>
+      <label><input type="radio" name="gender" value="male"> 남성</label>
     </div>
 
+    <!-- 체형 -->
     <div style="margin-bottom:18px;">
       <label style="font-weight:bold;">Body type:</label>
-      <label style="margin-left:8px;"><input type="radio" name="body_type" value="Emaciated">매우 마름</label>
-      <label><input type="radio" name="body_type" value="Slim">마름</label>
-      <label><input type="radio" name="body_type" value="Average" checked>적당</label>
-      <label><input type="radio" name="body_type" value="Overweight">뚱뚱</label>
-      <label><input type="radio" name="body_type" value="Overweight">왕뚱뚱</label>
+      <label style="margin-left:8px;"><input type="radio" name="body_type" value="Emaciated"> 매우 마름</label>
+      <label><input type="radio" name="body_type" value="Slim"> 마름</label>
+      <label><input type="radio" name="body_type" value="Average" checked> 적당</label>
+      <label><input type="radio" name="body_type" value="Overweight"> 뚱뚱</label>
+      <label><input type="radio" name="body_type" value="Obese"> 왕뚱뚱</label>
     </div>
-    <button type="submit" style="background:#4a90e2;color:#fff;padding:10px 0;border:none;border-radius:8px;font-size:1.1em;cursor:pointer;width:100%;">생성</button>
+
+    <button type="submit" class="submit-btn">생성</button>
   </form>
 
   <hr>
   <div id="log" style="text-align:center;"></div>
 
   <script>
+    // Clothes type 2개 입력 show/hide
+    const clothesType2 = document.getElementById('clothes_type2');
+    document.querySelectorAll('input[name="input_mode"]').forEach(radio => {
+      radio.addEventListener('change', e => {
+        clothesType2.style.display = (e.target.value === '2') ? 'block' : 'none';
+      });
+    });
+
+    // 이미지 미리보기
     function previewImage(event, previewId) {
       const file = event.target.files[0];
       const preview = document.getElementById(previewId);
       preview.innerHTML = '';
       if (file) {
         const img = document.createElement('img');
+        img.src = URL.createObjectURL(file);
         img.style.maxWidth = '120px';
         img.style.maxHeight = '120px';
         img.style.borderRadius = '8px';
         img.style.boxShadow = '0 1px 4px #0002';
-        img.src = URL.createObjectURL(file);
         preview.appendChild(img);
       }
     }
 
+    // 이미지 생성 요청
     document.getElementById("form").addEventListener("submit", async function(e) {
       e.preventDefault();
       const formData = new FormData(this);
@@ -87,8 +158,8 @@
       const reader = response.body.getReader();
       const decoder = new TextDecoder("utf-8");
       const log = document.getElementById("log");
+      log.innerHTML = "";
 
-      log.innerHTML = "";  // 초기화
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;

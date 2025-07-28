@@ -42,9 +42,9 @@ def body_type_prompt():
     }
     
 
-def fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, gender, body_type):
+def fill_workflow_template(image1_filename, image2_filename, image3_filename, input_mode, clothes_type1, clothes_type2, human_info, gender, body_type):
 
-    workflow_file = "workflow_template.json" if "and" in clothes_type else "workflow_template_comb.json"
+    workflow_file = "new_workflow_single_template.json" if input_mode == "1" else "new_workflow_multiple_template.json"
     workflow_path = os.path.join(os.path.dirname(__file__), f"../../{WORKFLOW_DIR}/{workflow_file}")
     workflow_path = os.path.abspath(workflow_path)
 
@@ -54,20 +54,25 @@ def fill_workflow_template(image1_filename, image2_filename, clothes_type, human
         return workflow_template \
             .replace("{image1}", image1_filename) \
             .replace("{image2}", image2_filename) \
-            .replace("{seed1}", str(1224)) \
+            .replace("{image3}", image3_filename) \
+            .replace("{seed1}", str(get_random_seed())) \
             .replace("{seed2}", str(get_random_seed())) \
             .replace("{seed3}", str(get_random_seed())) \
-            .replace("{clothes_type}", clothes_type) \
+            .replace("{seed4}", str(get_random_seed())) \
+            .replace("{seed5}", str(get_random_seed())) \
+            .replace("{clothes_type1}", clothes_type1) \
+            .replace("{clothes_type2}", clothes_type2) \
             .replace("{human_info}", human_info) \
             .replace("{prompt_text}", body_type_prompt().get(gender).get(body_type, ""))
 
-async def process_generate(image1, image2, clothes_type, gender, body_type):
+async def process_generate(image1, image2, image3, input_mode, clothes_type1, clothes_type2, gender, body_type):
     image1_filename = save_file_and_upload(image1)
     image2_filename = save_file_and_upload(image2)
+    image3_filename = save_file_and_upload(image3)
 
     human_info = ""
 
-    prompt = fill_workflow_template(image1_filename, image2_filename, clothes_type, human_info, gender, body_type)
+    prompt = fill_workflow_template(image1_filename, image2_filename, image3_filename, input_mode, clothes_type1, clothes_type2, human_info, gender, body_type)
     workflow_json = { "prompt": json.loads(prompt) }
 
     prompt_id = await post_prompt(workflow_json)

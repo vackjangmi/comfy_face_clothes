@@ -18,8 +18,11 @@ async def index(request: Request):
 async def generate(
     image1: UploadFile = File(...),
     image2: UploadFile = File(...),
-    clothes_type: str = Form(...),
+    image3: UploadFile = File(...),
+    input_mode: str = Form(...),
+    clothes_type1: str = Form(...),
+    clothes_type2: str = Form(...),
     gender: str = Form(...),
     body_type: str = Form(...)
 ):
-    return await process_generate(image1, image2, clothes_type, gender, body_type)
+    return await process_generate(image1, image2, image3, input_mode, clothes_type1, clothes_type2, gender, body_type)
