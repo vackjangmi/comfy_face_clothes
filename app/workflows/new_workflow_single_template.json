@@ -102,7 +102,8 @@
   },
   "9": {
     "inputs": {
-      "provider": "CPU"
+      "provider": "CPU",
+      "model_name": "buffalo_l"
     },
     "class_type": "IPAdapterInsightFaceLoader",
     "_meta": {
@@ -371,7 +372,7 @@
       "num_beams": 6,
       "do_sample": false,
       "output_mask_select": "",
-      "seed": "{seed1}",
+      "seed": "{seed4}",
       "image": [
         "80",
         0
@@ -784,7 +785,7 @@
       "num_beams": 6,
       "do_sample": false,
       "output_mask_select": "",
-      "seed": "{seed2}",
+      "seed": "{seed1}",
       "image": [
         "71",
         0
@@ -864,7 +865,7 @@
   },
   "83": {
     "inputs": {
-      "seed": "{seed3}",
+      "seed": "{seed2}",
       "steps": 20,
       "cfg": 10,
       "sampler_name": "dpmpp_2m",
@@ -951,7 +952,7 @@
   },
   "90": {
     "inputs": {
-      "seed": "{seed4}",
+      "seed": "{seed3}",
       "steps": 30,
       "cfg": 6,
       "sampler_name": "dpmpp_2m",
@@ -1101,6 +1102,19 @@
     "class_type": "ImageTransformResizeClip",
     "_meta": {
       "title": "ImageTransformResizeClip"
+    }
+  },
+  "103": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "이미지 저장"
     }
   }
 }
