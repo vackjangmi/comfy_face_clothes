@@ -1,8 +1,8 @@
 {
   "id": "89beb731-a0d2-441d-9641-de93ecd1b5a1",
   "revision": 0,
-  "last_node_id": 553,
-  "last_link_id": 819,
+  "last_node_id": 557,
+  "last_link_id": 822,
   "nodes": [
     {
       "id": 9,
@@ -4655,7 +4655,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        1066816001821985,
+        94689227052633,
         "randomize",
         30,
         6,
@@ -4728,7 +4728,7 @@
         6,
         false,
         "",
-        1036440367360606,
+        872782080747365,
         "randomize"
       ],
       "color": "#432",
@@ -7965,49 +7965,6 @@
       "widgets_values": []
     },
     {
-      "id": 471,
-      "type": "CLIPTextEncode",
-      "pos": [
-        5198.31689453125,
-        10044.2353515625
-      ],
-      "size": [
-        400,
-        160
-      ],
-      "flags": {},
-      "order": 142,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 679
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": [
-            681,
-            700
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "blurry, low quality, low resolution, low contrast, deformed, disfigured, extra limbs, fused fingers, cropped, out of frame, bad anatomy, bad proportions, overexposed, underexposed, noisy, cartoon, anime, painting, illustration, text, watermark, logo, nsfw, grainy, unnatural skin, jpeg artifacts,\nhat, helmet, veil, accessory, multiple people, group, crowd, extra faces, duplicate, clones, twin, another person, second person\n"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
       "id": 472,
       "type": "SAMLoader",
       "pos": [
@@ -8526,7 +8483,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        23316855499114,
+        413490668865566,
         "randomize",
         30,
         6,
@@ -8752,67 +8709,6 @@
       ]
     },
     {
-      "id": 496,
-      "type": "Text Concatenate",
-      "pos": [
-        2805.47412109375,
-        11385.1875
-      ],
-      "size": [
-        270,
-        142
-      ],
-      "flags": {},
-      "order": 243,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text_a",
-          "shape": 7,
-          "type": "STRING",
-          "link": 725
-        },
-        {
-          "name": "text_b",
-          "shape": 7,
-          "type": "STRING",
-          "link": 726
-        },
-        {
-          "name": "text_c",
-          "shape": 7,
-          "type": "STRING",
-          "link": null
-        },
-        {
-          "name": "text_d",
-          "shape": 7,
-          "type": "STRING",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            676
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "was-ns",
-        "ver": "f86447721c18758d7b3b6ae5769f52344a3d764a",
-        "Node name for S&R": "Text Concatenate"
-      },
-      "widgets_values": [
-        ", ",
-        "true"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 498,
       "type": "Text Multiline",
       "pos": [
@@ -8935,7 +8831,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        1093823357946732,
+        292499333036471,
         "randomize",
         20,
         10,
@@ -8998,7 +8894,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        302104338647885,
+        335760318697954,
         "randomize",
         20,
         10,
@@ -9059,7 +8955,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        235252476528754,
+        899607577154399,
         "randomize",
         20,
         10,
@@ -9706,7 +9602,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        316601663588695,
+        283662692460103,
         "randomize",
         30,
         6,
@@ -10954,7 +10850,7 @@
         6,
         false,
         "",
-        617377523240927,
+        872798462674072,
         "randomize"
       ],
       "color": "#432",
@@ -11119,76 +11015,6 @@
       ]
     },
     {
-      "id": 542,
-      "type": "Florence2Run",
-      "pos": [
-        3329.354248046875,
-        10492.9755859375
-      ],
-      "size": [
-        400,
-        364
-      ],
-      "flags": {},
-      "order": 169,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 800
-        },
-        {
-          "name": "florence2_model",
-          "type": "FL2MODEL",
-          "link": 807
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": []
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "links": []
-        },
-        {
-          "name": "caption",
-          "type": "STRING",
-          "links": [
-            798
-          ]
-        },
-        {
-          "name": "data",
-          "type": "JSON",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-florence2",
-        "ver": "1.0.5",
-        "Node name for S&R": "Florence2Run"
-      },
-      "widgets_values": [
-        "",
-        "prompt_gen_mixed_caption_plus",
-        false,
-        false,
-        1024,
-        6,
-        false,
-        "",
-        468303186178154,
-        "randomize"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 541,
       "type": "Text Multiline",
       "pos": [
@@ -11219,67 +11045,6 @@
       },
       "widgets_values": [
         "("
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 543,
-      "type": "Text Concatenate",
-      "pos": [
-        3793.541259765625,
-        10508.513671875
-      ],
-      "size": [
-        270,
-        142
-      ],
-      "flags": {},
-      "order": 189,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text_a",
-          "shape": 7,
-          "type": "STRING",
-          "link": 797
-        },
-        {
-          "name": "text_b",
-          "shape": 7,
-          "type": "STRING",
-          "link": 798
-        },
-        {
-          "name": "text_c",
-          "shape": 7,
-          "type": "STRING",
-          "link": 799
-        },
-        {
-          "name": "text_d",
-          "shape": 7,
-          "type": "STRING",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            801
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "was-ns",
-        "ver": "f86447721c18758d7b3b6ae5769f52344a3d764a",
-        "Node name for S&R": "Text Concatenate"
-      },
-      "widgets_values": [
-        "",
-        "true"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -11383,7 +11148,7 @@
         6,
         false,
         "",
-        183390380572722,
+        54236382675738,
         "randomize"
       ],
       "color": "#432",
@@ -11716,7 +11481,7 @@
         6,
         false,
         "",
-        691899752303748,
+        921018706848341,
         "randomize"
       ],
       "color": "#432",
@@ -11983,7 +11748,7 @@
         6,
         false,
         "",
-        689768413378433,
+        494566514518535,
         "randomize"
       ],
       "color": "#432",
@@ -12522,6 +12287,241 @@
       ],
       "color": "#323",
       "bgcolor": "#535"
+    },
+    {
+      "id": 496,
+      "type": "Text Concatenate",
+      "pos": [
+        2805.47412109375,
+        11385.1875
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 243,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "link": 725
+        },
+        {
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "link": 726
+        },
+        {
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        },
+        {
+          "name": "text_d",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            676
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-ns",
+        "ver": "f86447721c18758d7b3b6ae5769f52344a3d764a",
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 543,
+      "type": "Text Concatenate",
+      "pos": [
+        3793.541259765625,
+        10508.513671875
+      ],
+      "size": [
+        270,
+        142
+      ],
+      "flags": {},
+      "order": 189,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "shape": 7,
+          "type": "STRING",
+          "link": 797
+        },
+        {
+          "name": "text_b",
+          "shape": 7,
+          "type": "STRING",
+          "link": 798
+        },
+        {
+          "name": "text_c",
+          "shape": 7,
+          "type": "STRING",
+          "link": 799
+        },
+        {
+          "name": "text_d",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            801
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-ns",
+        "ver": "f86447721c18758d7b3b6ae5769f52344a3d764a",
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "true"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 471,
+      "type": "CLIPTextEncode",
+      "pos": [
+        5198.31689453125,
+        10044.2353515625
+      ],
+      "size": [
+        400,
+        160
+      ],
+      "flags": {},
+      "order": 142,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 679
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            681,
+            700
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, low quality, low resolution, low contrast, deformed, disfigured, extra limbs, fused fingers, cropped, out of frame, bad anatomy, bad proportions, overexposed, underexposed, noisy, cartoon, anime, painting, illustration, text, watermark, logo, nsfw, grainy, unnatural skin, jpeg artifacts,\nhat, helmet, veil, accessory, multiple people, group, crowd, extra faces, duplicate, clones, twin, another person, second person, (close-up:1.5), (crop:1.5)\n"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 542,
+      "type": "Florence2Run",
+      "pos": [
+        3329.354248046875,
+        10492.9755859375
+      ],
+      "size": [
+        400,
+        364
+      ],
+      "flags": {},
+      "order": 169,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 800
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 807
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            798
+          ]
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.5",
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "",
+        "prompt_gen_mixed_caption_plus",
+        false,
+        false,
+        1024,
+        6,
+        false,
+        "",
+        48992915411494,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -15750,10 +15750,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7058410644531252,
+      "scale": 0.20569152832031254,
       "offset": [
-        -7190.00834134115,
-        -5479.594909287806
+        -429.17582801310664,
+        -8700.458078324793
       ]
     },
     "frontendVersion": "1.21.6"
