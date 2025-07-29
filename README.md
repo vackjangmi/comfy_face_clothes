@@ -23,6 +23,7 @@ run.py 를 통해 실행하을 하게 되면 타임아웃이 발생할 가능성
  - https://github.com/ltdrdata/ComfyUI-Impact-Subpack
  - https://github.com/ltdrdata/was-node-suite-comfyui
  - https://github.com/ai-shizuka/ComfyUI-tbox
+ - https://github.com/Curt-Park/human-parser-comfyui-node-in-pure-python
 
 ### 필요한 model
 models 폴더에 추가 되야 합니다.
