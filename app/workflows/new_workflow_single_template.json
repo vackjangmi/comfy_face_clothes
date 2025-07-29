@@ -420,14 +420,14 @@
   },
   "31": {
     "inputs": {
-      "model": "Florence-2-large-PromptGen-v2.0",
+      "model": "MiaoshouAI/Florence-2-large-PromptGen-v2.0",
       "precision": "fp16",
       "attention": "sdpa",
       "convert_to_safetensors": false
     },
-    "class_type": "Florence2ModelLoader",
+    "class_type": "DownloadAndLoadFlorence2Model",
     "_meta": {
-      "title": "Florence2ModelLoader"
+      "title": "DownloadAndLoadFlorence2Model"
     }
   },
   "34": {

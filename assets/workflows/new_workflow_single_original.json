@@ -1354,7 +1354,7 @@
     },
     {
       "id": 31,
-      "type": "Florence2ModelLoader",
+      "type": "DownloadAndLoadFlorence2Model",
       "pos": [
         8427.8994140625,
         7061.5625
@@ -1385,12 +1385,12 @@
         }
       ],
       "properties": {
-        "cnr_id": "comfyui-florence2",
-        "ver": "1.0.5",
-        "Node name for S&R": "Florence2ModelLoader"
+        "aux_id": "kijai/ComfyUI-Florence2",
+        "ver": "de485b65b3e1b9b887ab494afa236dff4bef9a7e",
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
       },
       "widgets_values": [
-        "Florence-2-large-PromptGen-v2.0",
+        "MiaoshouAI/Florence-2-large-PromptGen-v2.0",
         "fp16",
         "sdpa",
         false
