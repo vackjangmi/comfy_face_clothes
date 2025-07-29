@@ -21,6 +21,8 @@ async def get_history(prompt_id):
         return res.json()
 
 async def generate_image(prompt_id, timeout: int = 700):
+    print(f"이미지 생성 시작: {prompt_id}")
+
     for i in range(timeout):
         data = await get_history(prompt_id)
 
@@ -39,12 +41,21 @@ async def get_generated_image(prompt_id):
         raise RuntimeError("생성된 이미지 없음")
 
     outputs_dict = data[prompt_id]["outputs"]
-    output = outputs_dict[max(outputs_dict.keys())]
 
-    if "images" not in output or not output:
+    # 'type'이 'output'인 이미지만 필터링
+    filtered = [
+        (key, image)
+        for key in sorted(outputs_dict.keys())
+        for image in outputs_dict[key].get("images", [])
+        if image.get("type") == "output"
+    ]
+
+    if not filtered:
         raise RuntimeError("생성된 이미지 없음")
 
-    image = output["images"][0]
+    print(filtered)
+    # key를 정수로 변환해서 가장 큰 key의 image를 선택
+    _, image = max(filtered, key=lambda x: int(x[0]))
     return f"{COMFYUI_BASE_URL}/api/view?filename={image['filename']}&type={image['type']}&subfolder={image['subfolder']}"
 
 def upload_image(filename):
