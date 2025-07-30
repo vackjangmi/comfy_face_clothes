@@ -51,8 +51,6 @@ pip install scikit-learn
 pip install tqdm
 pip install transformers==4.49.0
 
-cd models
-
 mkdir -p models/checkpoints models/ipadapter models/clip_vision models/lora models/controlnet models/ultralytics/bbox models/sams
 
 curl -L "https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/realisticVisionV51_v51VAE.safetensors?download=true" -o models/checkpoints/realisticVisionV51_v51VAE.safetensors
