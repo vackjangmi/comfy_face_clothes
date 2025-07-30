@@ -4,6 +4,20 @@
 얼굴사진과 옷사진을 업로드하고, 옷의 유형, 체형에 대해서 입력을 받는다.  
 업로드된 사진과 옷의 유형, 체형을 기반으로 이미지를 생성한다.
 
+# 개발 및 테스트 환경
+ - MacBook Pro M4 MAX / MacoBook Pro M1 Pro
+ - Python 3.12.0
+ - asdf python plugin
+
+### ComfyUi 실행 시 발생 시 문제 해결 방법
+### _lzma 모듈이 누락되어 발생
+아래 명령어 실행 후 다시 셋팅 시작
+```
+brew install xz
+asdf uninstall python 3.12.0 
+asdf install python 3.12.0
+```
+
 # 사전준비
 ## ComfyUI 설치 및 실행
 `./comfyui-init.sh` 파일을 실행하면 ComfyUI가 설치되고, 필요한 custom node와 model이 다운로드 됩니다.  
