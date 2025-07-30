@@ -74,8 +74,16 @@ custom_node 를 설치 후 ComfyUI를 실행합니다.
 asserts/ComfyUI-Manager를 통해서 설치할 수 있습니다.
 
 ### 설치되어 있지 않은 경우
+### sh 명령어로 설치 실행
 ```
-`python comfyui_init.py` 또는 `./comfyui-init.sh` 실행
+cd external
+./comfyui-setup.sh
+```
+
+### 파이선으로 설치 실행
+```
+cd external
+python comfyui_setup.py
 ```
 
 # 샘플 결과값

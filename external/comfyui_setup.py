@@ -34,8 +34,7 @@ def clone_comfyui():
 
 def install_comfyui_requirements():
     pip_install_in_comfyui(["-r", "requirements.txt"])
-    pip_install_in_comfyui("insightface")
-    pip_install_in_comfyui(["onnxruntime", "onnx", "numpy"])
+    pip_install_in_comfyui(["-r", "../comfyui-addition-requirements.txt"])
 
 def clone_custom_nodes():
     custom_nodes = [
@@ -54,39 +53,6 @@ def clone_custom_nodes():
     for url, dest in custom_nodes:
         clone_repo(url, dest)
 
-def install_extra_pip_packages():
-    pip_packages = [
-        "segment-anything",
-        "scikit-image>=0.20.0",
-        "piexif",
-        "opencv-python-headless",
-        "scipy>=1.11.4",
-        "numpy",
-        "dill",
-        "matplotlib",
-        "git+https://github.com/facebookresearch/sam2",
-        "segment_anything",
-        "timm>=0.4.12",
-        "addict",
-        "yapf",
-        "rembg",
-        "ultralytics>=8.3.162",
-        "cmake",
-        "fairscale>=0.4.4",
-        "git+https://github.com/ltdrdata/img2texture.git",
-        "git+https://github.com/ltdrdata/cstr",
-        "imageio",
-        "joblib",
-        "numba",
-        "pilgram",
-        "git+https://github.com/ltdrdata/ffmpy.git",
-        "scikit-learn",
-        "tqdm",
-        "transformers==4.49.0",
-    ]
-    for pkg in pip_packages:
-        pip_install_in_comfyui(pkg)
-
 def create_model_dirs():
     model_dirs = [
         "models/checkpoints",
@@ -101,6 +67,7 @@ def create_model_dirs():
         os.makedirs(os.path.join("ComfyUI", d), exist_ok=True)
 
 def download_models():
+    create_model_dirs()
     model_downloads = [
         ("https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/realisticVisionV51_v51VAE.safetensors?download=true", "ComfyUI/models/checkpoints/realisticVisionV51_v51VAE.safetensors"),
         ("https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15.bin?download=true", "ComfyUI/models/ipadapter/ip-adapter-faceid-plusv2_sd15.bin"),
@@ -119,8 +86,6 @@ def setup_comfyui():
     clone_comfyui()
     install_comfyui_requirements()
     clone_custom_nodes()
-    install_extra_pip_packages()
-    create_model_dirs()
     download_models()
 
 if __name__ == "__main__":

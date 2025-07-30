@@ -1,5 +1,5 @@
 uploads
 .DS_Store
 __pycache__
-ComfyUI
 .idea/
+external/ComfyUI
