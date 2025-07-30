@@ -25,7 +25,6 @@ asdf install python 3.12.0
 run.py 를 통해 실행하을 하게 되면 타임아웃이 발생할 가능성이 있기 때문에 comfyui 를 직접 실행한 후 workflows 를 한번 수행하는 것이 좋습니다.  
 
 ### 필요 custom node
-위에 sh 로 실행 시 설치 됨.
  - https://github.com/ltdrdata/ComfyUI-Manager
  - https://github.com/cubiq/ComfyUI_IPAdapter_plus
  - https://github.com/Fannovel16/comfyui_controlnet_aux
@@ -60,14 +59,24 @@ models 폴더에 추가 되야 합니다.
  - models/sams/sam_vit_h_4b8939.pth
    - https://huggingface.co/HCMUE-Research/SAM-vit-h/resolve/main/sam_vit_h_4b8939.pth?download=true
 
-# 실행방법
+# 실행방법 
+
+## 어플리케이션 실행
 ```
 pip install -r requirements.txt
-python comfyui_init.py
-python ComfyUI/main.py
 python run.py
 ```
 브라우저에서 `http://127.0.0.1:8000` 로 접속하여 사용합니다.
+
+## ComfyUI 실행
+### 이미 설치된 경우
+custom_node 를 설치 후 ComfyUI를 실행합니다.  
+asserts/ComfyUI-Manager를 통해서 설치할 수 있습니다.
+
+### 설치되어 있지 않은 경우
+```
+`python comfyui_init.py` 또는 `./comfyui-init.sh` 실행
+```
 
 # 샘플 결과값
 ## Sample 01
