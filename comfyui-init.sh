@@ -57,7 +57,7 @@ curl -L "https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/realistic
 curl -L "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15.bin?download=true" -o models/ipadapter/ip-adapter-faceid-plusv2_sd15.bin
 curl -L "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors?download=true" -o models/ipadapter/ip-adapter-plus_sd15.safetensors
 curl -L "https://huggingface.co/Kuvshin/models-moved/resolve/main/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors?download=true" -o models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors
-curl -L "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15_lora.safetensors?download=true" -o models/lora/ip-adapter-faceid-plusv2_sd15_lora.safetensors
+curl -L "https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15_lora.safetensors?download=true" -o models/loras/ip-adapter-faceid-plusv2_sd15_lora.safetensors
 curl -L "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth?download=true" -o models/controlnet/control_v11p_sd15_openpose.pth
 curl -L "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -o models/ultralytics/bbox/face_yolov8m.pt
 curl -L "https://huggingface.co/datasets/Gourieff/ReActor/resolve/main/models/sams/sam_vit_b_01ec64.pth?download=true" -o models/sams/sam_vit_b_01ec64.pth

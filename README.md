@@ -35,7 +35,7 @@ models 폴더에 추가 되야 합니다.
    - https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors?download=true
  - models/clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors
    - https://huggingface.co/Kuvshin/models-moved/resolve/main/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors?download=true
- - models/lora/ip-adapter-faceid-plusv2_sd15_lora.safetensors
+ - models/loras/ip-adapter-faceid-plusv2_sd15_lora.safetensors
    - https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid-plusv2_sd15_lora.safetensors?download=true
  - models/controlnet/control_v11p_sd15_openpose.pth
    - https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth?download=true
