@@ -20,7 +20,7 @@ asdf install python 3.12.0
 
 # 사전준비
 ## ComfyUI 설치 및 실행
-`./comfyui-init.sh` 파일을 실행하면 ComfyUI가 설치되고, 필요한 custom node와 model이 다운로드 됩니다.  
+`./comfyui-init.sh` 파일 또는 `python comfyui_init.py` 를 실행하면 ComfyUI가 설치되고, 필요한 custom node와 model이 다운로드 됩니다.  
 일부 데이터는 workflow 수행 시 다운로드 되기 때문에 시간이 소요될 수 있습니다.  
 run.py 를 통해 실행하을 하게 되면 타임아웃이 발생할 가능성이 있기 때문에 comfyui 를 직접 실행한 후 workflows 를 한번 수행하는 것이 좋습니다.  
 
@@ -63,7 +63,7 @@ models 폴더에 추가 되야 합니다.
 # 실행방법
 ```
 pip install -r requirements.txt
-./comfyui-init.sh
+python comfyui_init.py
 python ComfyUI/main.py
 python run.py
 ```
